@@ -1,0 +1,50 @@
+/* Reset margin and padding for all elements */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set a consistent font style */
+body {
+    font-family: Arial, sans-serif;  /* Replace with your desired font */
+    line-height: 1.5;
+}
+
+/* Remove default styling for lists */
+ul, ol {
+    list-style: none;
+}
+
+/* Anchor tags don't have underlines by default */
+a {
+    text-decoration: none;
+    color: inherit;  /* Inherit text color from parent */
+}
+
+/* For form elements */
+input, button, textarea, select {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+/* Consistent sizing for images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Normalize the document's box model */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-size: 16px;  /* Default font size */
+}
+
+/* Remove any spacing caused by default styles on tables */
+table {
+    border-collapse: collapse;
+}
