@@ -5,13 +5,15 @@ const Gameboard = (function () {
 
     const checkWinner = () => {
         // WINNING POSITIONS:
-        // top row [0, 1, 2]
+        //    top row [0, 1, 2]
         // middle row [3, 4, 5]
         // bottom row [6, 7, 8]
-        // left column [0, 3, 6]
+
+        //   left column [0, 3, 6]
         // middle column [1, 4, 7]
-        // right column [2, 5, 8]
-        // left diagonal [0, 4, 8]
+        //  right column [2, 5, 8]
+
+        //  left diagonal [0, 4, 8]
         // right diagonal [2, 4, 6]
 
         const winningPositions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], //rows
@@ -22,7 +24,7 @@ const Gameboard = (function () {
         for (let i = 0; i < winningPositions.length; i++){
             const [a, b, c] = winningPositions[i];
             if (board[a] !== "" && board[a] === board[b] && board[a] === board[c]){
-                return `${board[a]} is the winner!`;
+                return board[a];
             }
         };
         return null;
@@ -31,9 +33,12 @@ const Gameboard = (function () {
     const placeMarker = (index, marker) => {
         if (board[index] === ""){
             board[index] = marker;
+            const winner = checkWinner();
+            if (winner) {
+                console.log(`${winner} has won!`)
+            }
             return true;
         }
-        checkWinner();
         return false;
     }
 
