@@ -30,19 +30,36 @@ const Gameboard = (function () {
         return null;
     };
 
+    const tieDetector = () => {
+        let isBoardFull = true;
+        for (let i = 0; i < board.length; i++) {
+            if (board[i] === ""){
+                isBoardFull = false;
+                break;
+            }
+        }
+        return isBoardFull;
+    }
+
     const placeMarker = (index, marker) => {
         if (board[index] === ""){
             board[index] = marker;
             const winner = checkWinner();
             if (winner) {
                 console.log(`${winner} has won!`)
+                return;
+            }
+            const tieCheck = tieDetector();
+            if (tieCheck) {
+                console.log("It's a tie!")
+                return;
             }
             return true;
         }
         return false;
     }
 
-    return {getBoard, placeMarker, checkWinner};
+    return {getBoard, placeMarker, checkWinner, tieDetector};
 })();
 
 function Player (name, marker) {
