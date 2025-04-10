@@ -78,4 +78,12 @@ table {
     grid-column: 1 / 6;
     grid-row: 5 / 6;
     background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 5vh 0 0 0;
+}
+
+.footer-text {
+    font-size: 1.2vh;
 }
