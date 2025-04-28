@@ -56,15 +56,29 @@ table {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    background-color: black;
 }
 
 .header {
     grid-column: 2 / 5;
     grid-row: 1 / 2;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#start {
+    display: flex;
+    align-items: center;
+}
+
+.OR {
+    margin: 0 4em 0 4em;
+}
+
+#X-Start, #O-Start {
+    font-size: 2em;
 }
 
 .board-container {
@@ -76,31 +90,31 @@ table {
 }
 
 .game-board {
-    background-color: rgb(255, 255, 255);
-    height: clamp(350px, 50vh, 450px);
-    width: clamp(350px, 50vh, 450px);;
-    display: grid;
+    background-color: rgb(0, 0, 0);
+    height: clamp(350px, 50vw, 450px);
+    width: clamp(350px, 50vw, 450px);;
+    display: none;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
 
 .square1, .square2, .square4, .square5 {
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 .square3, .square6 {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(255, 255, 255);
 }
 
 .square7, .square8 {
-    border-right: 1px solid black;
+    border-right: 1px solid rgb(255, 255, 255);
 }
 
 .footer {
     grid-column: 1 / 6;
     grid-row: 5 / 6;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     text-align: center;
@@ -110,3 +124,4 @@ table {
 .footer-text {
     font-size: 1.2vh;
 }
+
