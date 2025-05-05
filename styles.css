@@ -101,14 +101,29 @@ table {
 .square1, .square2, .square4, .square5 {
     border-right: 1px solid rgb(255, 255, 255);
     border-bottom: 1px solid rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .square3, .square6 {
     border-bottom: 1px solid rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .square7, .square8 {
     border-right: 1px solid rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square9 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer {
