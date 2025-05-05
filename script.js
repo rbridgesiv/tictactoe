@@ -30,6 +30,14 @@ const Gameboard = (function () {
         return null;
     };
 
+    const clearBoard = () => {
+        board = ["", "", "", "", "", "", "", "", ""];
+        for (let i = 0; i <= 8; i++){
+            const square = document.getElementById(`sq${i}`);
+            square.textContent = '';
+        }
+    }
+
     const tieDetector = () => {
         let isBoardFull = true;
         for (let i = 0; i < board.length; i++) {
@@ -46,12 +54,24 @@ const Gameboard = (function () {
             board[index] = marker;
             const winner = checkWinner();
             if (winner) {
-                console.log(`${winner} has won!`)
+                console.log(`${winner} has won!`);
+                setTimeout(() => {
+                    clearBoard();
+                    for (let i = 0; i <= 8; i++) {
+                        document.getElementById(`sq${i}`).textContent = "";
+                    }
+                }, 1000);
                 return;
             }
             const tieCheck = tieDetector();
             if (tieCheck) {
-                console.log("It's a tie!")
+                console.log("It's a tie!");
+                setTimeout(() => {
+                    clearBoard();
+                    for (let i = 0; i <= 8; i++) {
+                        document.getElementById(`sq${i}`).textContent = "";
+                    }
+                }, 1000);
                 return;
             }
             return true;
@@ -59,7 +79,7 @@ const Gameboard = (function () {
         return false;
     }
 
-    return {getBoard, placeMarker, checkWinner, tieDetector};
+    return {getBoard, placeMarker, checkWinner, tieDetector, clearBoard};
 })();
 
 function Player (name, marker) {
@@ -127,9 +147,11 @@ for (let i = 0; i <= 8; i++){
         let currentPlayer = GameController.getCurrentPlayer();
         let currentMarker = currentPlayer.marker;
         Gameboard.placeMarker(`${i}`, currentMarker);
-        square.textContent = currentMarker;
-        Gameboard.getBoard();
-        GameController.switchCurrentPlayer();
-        console.log(`I am square ${i}`);
+        if(square.textContent !== 'X' && square.textContent !== 'O'){
+            square.textContent = currentMarker;
+            Gameboard.getBoard();
+            GameController.switchCurrentPlayer();
+            console.log(`I am square ${i}`);
+        };
     })
 }
