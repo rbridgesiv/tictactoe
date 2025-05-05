@@ -72,7 +72,7 @@ const GameController = (function () {
     // const player2 = Player("Zisha", "O");
     let player1
     let player2
-    let currentPlayer = player1;
+    let currentPlayer
 
     const getCurrentPlayer = () => currentPlayer;
 
@@ -89,6 +89,7 @@ const GameController = (function () {
         const player2Marker = player1Marker === "X" ? "O" : "X";
         player1 = Player("Player 1", player1Marker);
         player2 = Player("Player 2", player2Marker);
+        currentPlayer = player1;
     }
 
     return {getCurrentPlayer, switchCurrentPlayer, startGame};
@@ -119,11 +120,16 @@ OstartButton.addEventListener('click', function() {
 })
 
 
-// for (let i = 1; i <= 9; i++){
-//     const square = document.getElementById(`sq${i}`);
-//     square.addEventListener('click', function() {
-//         Gameboard.placeMarker(`${i}`, "X");
-//         Gameboard.getBoard();
-//         console.log(`I am square ${i}`);
-//     })
-// }
+for (let i = 0; i <= 8; i++){
+    const square = document.getElementById(`sq${i}`);
+
+    square.addEventListener('click', function() {
+        let currentPlayer = GameController.getCurrentPlayer();
+        let currentMarker = currentPlayer.marker;
+        Gameboard.placeMarker(`${i}`, currentMarker);
+        square.textContent = currentMarker;
+        Gameboard.getBoard();
+        GameController.switchCurrentPlayer();
+        console.log(`I am square ${i}`);
+    })
+}
